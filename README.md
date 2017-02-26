@@ -5,7 +5,7 @@ PSO implementation in Python 3.4
 sudo pip3.4 install numpy
 
 ## Test
-Change **f** to run different benchmarks:
+Change **f** (line #42) to run different benchmarks:
   * sphere
   * ackley
   * rosenbrock
