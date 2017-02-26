@@ -49,47 +49,6 @@ elif f == 'griewanks':
 elif f == 'rastrigin':
    xmax = 5.12
 
-
-# XML = 'init.xml'
-# actionset = []
-# if os.path.isfile(XML):
-#    print('Initializing using xml configs')
-#    tree = et.parse(XML)
-#    root = tree.getroot()
-
-#    for algorithm in root.findall('algorithm'):
-#       actionset.append( algorithm.get('name'))
-#       print(algorithm.tag,':', algorithm.attrib)
-
-#       imax = int(algorithm.find('max_iteration').text)
-#       print('   max iteration :', imax)
-
-#       c1 = float(algorithm.find('acceleration_coefficient_1').text)
-#       print('   coefficient 1  :', c1)
-
-#       c2 = float(algorithm.find('acceleration_coefficient_2').text)
-#       print('   coefficient 2  :', c2)
-
-#       wmax = float(algorithm.find('maximum_weight').text)
-#       print('   maximum weight :', wmax)
-
-#       wmin = float(algorithm.find('minimum_weight').text)
-#       print('   minimum weight :', wmin)
-
-#       dim = int(algorithm.find('dimension').text)
-#       print('   dimension      :', dim)
-
-#       size = int(algorithm.find('population').text)
-#       print('   population     :', size)
-
-#       efactor = float(algorithm.find('elite_factor').text)
-#       print('   elite factor   :', efactor)
-
-#       tdrfactor = int(algorithm.find('tdr_factor').text)
-#       print('   tdr factro     :', tdrfactor)
-
-# else:
-#    print('Initializing using local configs')
 # Maximum iterations
 imax = 1000
 # Acceleration coefficients
