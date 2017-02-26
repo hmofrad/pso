@@ -111,9 +111,6 @@ size = 50
 # Debug level
 VERBOS = True
 
-# Elite size
-esize = size - round(size * efactor)
-
 # Max and min position bounds
 xmax =  100
 xmin = -xmax
