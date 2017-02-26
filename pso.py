@@ -38,6 +38,7 @@ def rastrigin(x):
    return(y)
 
 benchmarks = {'sphere':sphere , 'ackley':ackley, 'rosenbrock':rosenbrock, 'griewanks':griewanks, 'rastrigin':rastrigin}
+
 f = 'sphere'
 if f == 'sphere':
    xmax =  100
