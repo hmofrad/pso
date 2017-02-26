@@ -1,6 +1,7 @@
 #!/usr/bin/python3.4
 # (c) Mohammad H. Mofrad, 2017 
 # (e) hasanzadeh@cs.pitt.edu
+# Particle Swarm Optimization (PSO)
 
 import numpy as np
 from math import *
@@ -51,9 +52,11 @@ elif f == 'rastrigin':
 
 # Maximum iterations
 imax = 1000
+
 # Acceleration coefficients
 c1   = 1.49445
 c2   = 1.49445
+
 # Weight
 wmax = 0.9
 wmin = 0.4
@@ -63,9 +66,6 @@ dim  = 30
 
 # Population size
 size = 50
-
-   
-
 
 # Debug level
 VERBOS = True
@@ -102,51 +102,29 @@ fgb  = 0
 gb   = np.copy(x[np.argmin(fx), :].reshape(1,dim))
 fgb  = np.copy(fx[np.argmin(fx)]).reshape(1,1)
 
-stat = []
-stat.append(fgb[0,0])
-
 w = 0.74
 
 # Main loop for updating particles
 for i in range(imax):
-#while(True):
-   # Fast/Slow decision cycle
-   # Generate a random number from N(0,1)
-   # Stochastic  weight update based on
-   # the generated random number which acts
-   # as a gaurd for learning episods
-
-
    for k in range(size):
-      # 3 Adaptation
       # Update partcile's velocity
       v[k,:] = (w * v[k,:]) + (c1 * np.random.rand(1, dim) * (pb[k,:] - x[k,:])) + (c2 * np.random.rand(1, dim) * (gb[0,:] - x[k,:]))
 
       # Update particle's position 
       x[k,:] = x[k,:] + v[k,:]
 
-      # 1.1 Enumeration phase 1
       # Update particle's fitness
       # Apply TDR sub dimensions
       fx[k,0] = benchmarks[f](x[k,:].reshape(1,dim))
-
-
-      # 2.1 Propagation phase 1
+      
       # Update personal best position	
       if(fx[k,0] < fpb[k,0]):
          pb[k,:]  = x[k,:]
          fpb[k,0] = fx[k,0]
 
-      # 2.2 Propagation phase 2
       # Update global best position
       if(fx[k,0] < fgb):
          gb[0,:] = x[k,:]
          fgb = fx[k,0]
       if VERBOS:
-         print('  Population 1: Iteration', i, 'Global best', fgb)
-      
-#   if not i%500:
-#      stat.append(fgb)
-#      print('Iteration', i, 'Global best', fgb)
-#print('Iteration', i, 'Global best', fgb)
-#print(stat)
+         print(' Iteration', i, 'Global best', fgb)
