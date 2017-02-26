@@ -204,14 +204,4 @@ for i in range(imax):
             if VERBOS:
                print('  Population 1: Iteration', i, 'Global best', fgb[0,0])
       probability = probabilityupdate(action, probability, numactions, dim, signal, alpha, beta)
-
-#   if not i%500:
-#      stat.append(fgb[0,0])
-#      stat1.append(fgb1[0,0])
-#      print('Iteration', i, 'Global best', fgb[0,0])
-#print('Iteration', i, 'Global best', fgb[0,0])
-#print(stat)
-#print()
-#print(stat1)
-
-
+   
