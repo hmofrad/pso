@@ -18,60 +18,8 @@ import xml.etree.ElementTree as et
 import random
 from random import randint
 
-from io import StringIO 
-
-import sys
-sys.path.append("/usr/src/libsvm-3.22/python/")
-from svmutil import *
-
 # Debug level
 VERBOS = False
-
-#y, x = svm_read_problem('/usr/src/libsvm-3.22/heart_scale')
-#m = svm_train(y[:200], x[:200], '-c 4')
-#p_label, p_acc, p_val = svm_predict(y[200:], x[200:], m)
-
-FILE_ORIG = 'pima-indians-diabetes.data.txt'
-FILE_LSVM = 'pima-indians-diabetes'
-
-if not os.path.isfile(FILE_LSVM):
-   if os.path.isfile(FILE_ORIG):
-      file = open(FILE_ORIG, 'r')
-      lines = tuple(file)
-      file.close()
-
-      data = []
-      for line in lines:
-         data.append(line.rstrip().split(","))   
-         if VERBOS: 
-            print(data[-1])
-   else:
-      print(FILE_ORIG, 'does not exist')
-      exit(0)
-
-   height = len(data)
-   width = len(data[0])
-
-   file = open(FILE_LSVM, 'w')
-   for d in data:
-      if VERBOS: 
-         print(d)
-      file.write('%s ' %(d[-1]))
-      for i in range(1,width):
-         if i+1 == width:
-            file.write('%s:%s' %(i, d[i-1]))
-         else:
-            file.write('%s:%s ' %(i, d[i-1]))
-      file.write('\n')
-   file.close()
-
-y, x = svm_read_problem('pima-indians-diabetes')
-m = svm_train(y[1:512], x[1:512], '-c 4')
-p_label, p_acc, p_val = svm_predict(y[513:767], x[513:767], m)
-print(p_acc[0])
-exit(0)
-
-
 
 def sphere(x):
    size, dim = x.shape
