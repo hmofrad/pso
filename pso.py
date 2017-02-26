@@ -1,5 +1,5 @@
 #!/usr/bin/python3.4
-# (c) Mohammad H. Mofrad, 2016 
+# (c) Mohammad H. Mofrad, 2017 
 # (e) hasanzadeh@cs.pitt.edu
 
 import numpy as np
@@ -50,71 +50,63 @@ elif f == 'rastrigin':
    xmax = 5.12
 
 
-XML = 'init.xml'
-actionset = []
-if os.path.isfile(XML):
-   print('Initializing using xml configs')
-   tree = et.parse(XML)
-   root = tree.getroot()
+# XML = 'init.xml'
+# actionset = []
+# if os.path.isfile(XML):
+#    print('Initializing using xml configs')
+#    tree = et.parse(XML)
+#    root = tree.getroot()
 
-   for algorithm in root.findall('algorithm'):
-      actionset.append( algorithm.get('name'))
-      print(algorithm.tag,':', algorithm.attrib)
+#    for algorithm in root.findall('algorithm'):
+#       actionset.append( algorithm.get('name'))
+#       print(algorithm.tag,':', algorithm.attrib)
 
-      imax = int(algorithm.find('max_iteration').text)
-      print('   max iteration :', imax)
+#       imax = int(algorithm.find('max_iteration').text)
+#       print('   max iteration :', imax)
 
-      c1 = float(algorithm.find('acceleration_coefficient_1').text)
-      print('   coefficient 1  :', c1)
+#       c1 = float(algorithm.find('acceleration_coefficient_1').text)
+#       print('   coefficient 1  :', c1)
 
-      c2 = float(algorithm.find('acceleration_coefficient_2').text)
-      print('   coefficient 2  :', c2)
+#       c2 = float(algorithm.find('acceleration_coefficient_2').text)
+#       print('   coefficient 2  :', c2)
 
-      wmax = float(algorithm.find('maximum_weight').text)
-      print('   maximum weight :', wmax)
+#       wmax = float(algorithm.find('maximum_weight').text)
+#       print('   maximum weight :', wmax)
 
-      wmin = float(algorithm.find('minimum_weight').text)
-      print('   minimum weight :', wmin)
+#       wmin = float(algorithm.find('minimum_weight').text)
+#       print('   minimum weight :', wmin)
 
-      dim = int(algorithm.find('dimension').text)
-      print('   dimension      :', dim)
+#       dim = int(algorithm.find('dimension').text)
+#       print('   dimension      :', dim)
 
-      size = int(algorithm.find('population').text)
-      print('   population     :', size)
+#       size = int(algorithm.find('population').text)
+#       print('   population     :', size)
 
-      efactor = float(algorithm.find('elite_factor').text)
-      print('   elite factor   :', efactor)
+#       efactor = float(algorithm.find('elite_factor').text)
+#       print('   elite factor   :', efactor)
 
-      tdrfactor = int(algorithm.find('tdr_factor').text)
-      print('   tdr factro     :', tdrfactor)
+#       tdrfactor = int(algorithm.find('tdr_factor').text)
+#       print('   tdr factro     :', tdrfactor)
 
-else:
-   print('Initializing using local configs')
-   # Maximum iterations
-   imax = 1000
-   # Acceleration coefficients
-   c1   = 1.49445
-   c2   = 1.49445
-   # Weight
-   wmax = 0.9
-   wmin = 0.4
+# else:
+#    print('Initializing using local configs')
+# Maximum iterations
+imax = 1000
+# Acceleration coefficients
+c1   = 1.49445
+c2   = 1.49445
+# Weight
+wmax = 0.9
+wmin = 0.4
 
-   # Number of dimensions
-   dim  = 30
+# Number of dimensions
+dim  = 30
 
-   # Population size
-   size = 50
+# Population size
+size = 50
 
-   # Enumeration size 
-   efactor = 2/3
-
-   # TDR constraints
-   tdrfactor = 4
-   # Action set
    
-   actionset.append('pso1')
 
-   actionset.append('pso2')
 
 # Debug level
 VERBOS = True
