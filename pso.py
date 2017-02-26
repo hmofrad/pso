@@ -4,12 +4,6 @@
 # Particle Swarm Optimization (PSO)
 
 import numpy as np
-from math import *
-import os
-import time
-import xml.etree.ElementTree as et
-import random
-from random import randint
 
 def sphere(x):
    size, dim = x.shape
