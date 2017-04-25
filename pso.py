@@ -18,7 +18,7 @@ def rosenbrock(x):
 def ackley(x):
    size, dim = x.shape
    y = np.sum(np.power(x,2), axis=1)
-   y = np.array(-20 * np.exp(-0.2 * np.sqrt(y/dim)) - np.exp(np.sum(np.cos(2 * pi * x), axis=1) / dim) + 20 + np.exp(1)).reshape(size,1)
+   y = np.array(-20 * np.exp(-0.2 * np.sqrt(y/dim)) - np.exp(np.sum(np.cos(2 * np.pi * x), axis=1) / dim) + 20 + np.exp(1)).reshape(size,1)
    return(y)
 
 def griewanks(x):
@@ -28,7 +28,7 @@ def griewanks(x):
 
 def rastrigin(x):
    size, dim = x.shape
-   y = np.array(np.sum(np.power(x, 2) - 10 * np.cos(2 * pi * x), axis = 1) + 10 * dim).reshape(size, 1)
+   y = np.array(np.sum(np.power(x, 2) - 10 * np.cos(2 * np.pi * x), axis = 1) + 10 * dim).reshape(size, 1)
    return(y)
 
 benchmarks = {'sphere':sphere , 'ackley':ackley, 'rosenbrock':rosenbrock, 'griewanks':griewanks, 'rastrigin':rastrigin}
