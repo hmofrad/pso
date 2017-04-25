@@ -19,7 +19,7 @@ import random
 from random import randint
 
 # Debug level
-VERBOS = False
+VERBOS = True
 
 def sphere(x):
    size, dim = x.shape
