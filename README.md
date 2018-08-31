@@ -12,3 +12,5 @@ Change **f** (line #42) to run different benchmarks:
   * griewanks
   * rastrigin
 
+## Reference
+* Mohammad Hasanzadeh Mofrad, and S. K. Chang. “A Bi-population Particle Swarm Optimizer for Learning Automata based Slow Intelligent System.” arXiv preprint arXiv:1804.00768, 2018. (https://arxiv.org/abs/1804.00768)
